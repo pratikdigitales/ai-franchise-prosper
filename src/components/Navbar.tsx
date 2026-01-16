@@ -21,18 +21,22 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 glass border-b border-border" : ""
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 px-4 py-4"
     >
-      <div className="container px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div 
+        className={`max-w-6xl mx-auto rounded-full transition-all duration-300 ${
+          isScrolled 
+            ? "bg-background/70 backdrop-blur-xl border border-border/50 shadow-lg" 
+            : "bg-background/50 backdrop-blur-md border border-border/30"
+        }`}
+      >
+        <div className="flex items-center justify-between h-14 px-6">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src={alieviLogo} alt="Alievi Analytics" className="h-8 md:h-10" />
+            <img src={alieviLogo} alt="Alievi Analytics" className="h-7 md:h-8" />
           </a>
 
-          {/* Desktop Menu */}
+          {/* Desktop Menu - Centered */}
           <div className="hidden md:flex items-center gap-8">
             <a href="#beneficios" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Benefícios
@@ -50,7 +54,7 @@ const Navbar = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-primary text-primary-foreground font-medium shadow-button hover:opacity-90 transition-opacity">
+            <Button className="bg-primary text-primary-foreground font-medium rounded-full px-6 shadow-button hover:bg-primary/90 transition-all">
               Quero ser Licenciado
             </Button>
           </div>
@@ -63,37 +67,37 @@ const Navbar = () => {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 glass border-t border-border"
-          >
-            <div className="py-4 space-y-4">
-              <a href="#beneficios" className="block px-4 py-2 text-muted-foreground hover:text-foreground">
-                Benefícios
-              </a>
-              <a href="#como-funciona" className="block px-4 py-2 text-muted-foreground hover:text-foreground">
-                Como Funciona
-              </a>
-              <a href="#produtos" className="block px-4 py-2 text-muted-foreground hover:text-foreground">
-                Produtos
-              </a>
-              <a href="#resultados" className="block px-4 py-2 text-muted-foreground hover:text-foreground">
-                Resultados
-              </a>
-              <div className="px-4">
-                <Button className="w-full bg-gradient-primary text-primary-foreground font-medium">
-                  Quero ser Licenciado
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="md:hidden mt-2 mx-auto max-w-6xl bg-background/90 backdrop-blur-xl rounded-2xl border border-border/50 shadow-lg"
+        >
+          <div className="py-4 space-y-2">
+            <a href="#beneficios" className="block px-6 py-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+              Benefícios
+            </a>
+            <a href="#como-funciona" className="block px-6 py-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+              Como Funciona
+            </a>
+            <a href="#produtos" className="block px-6 py-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+              Produtos
+            </a>
+            <a href="#resultados" className="block px-6 py-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+              Resultados
+            </a>
+            <div className="px-4 pt-2">
+              <Button className="w-full bg-primary text-primary-foreground font-medium rounded-full">
+                Quero ser Licenciado
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

@@ -1,101 +1,136 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, Zap } from "lucide-react";
+import heroImage from "@/assets/hero-image.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-50" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-dark" />
       
-      <div className="container relative z-10 px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-5xl mx-auto"
-        >
-          {/* Badge */}
+      {/* Subtle glow behind image area */}
+      <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+      
+      <div className="container relative z-10 px-4">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left Column - Content */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
           >
-            <Zap className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium text-muted-foreground">
-              Primeiro Modelo de Franquia de IA do Brasil
-            </span>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 border border-border/50 mb-6"
+            >
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-muted-foreground">
+                Primeiro Modelo de Franquia de IA do Brasil
+              </span>
+            </motion.div>
+
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            >
+              Lucre acima de{" "}
+              <span className="text-primary">R$ 60.000</span>{" "}
+              por mês com apenas{" "}
+              <span className="text-primary">2 pessoas</span>{" "}
+              na equipe
+            </motion.h1>
+
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-base md:text-lg text-muted-foreground max-w-xl mb-8"
+            >
+              Agora você pode lucrar com inteligência artificial mesmo sem entender de tecnologia. 
+              Invista <span className="text-primary font-semibold">R$ 39.900</span>, seja dono da sua empresa de tecnologia 
+              e fature mais de R$ 20.000/mês de forma recorrente a partir do 3º mês!
+            </motion.p>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="flex flex-wrap gap-6 mb-8"
+            >
+              <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
+                <TrendingUp className="w-4 h-4 text-primary" />
+                <span className="text-foreground font-semibold text-sm">+R$ 20k/mês</span>
+                <span className="text-muted-foreground text-xs">recorrente</span>
+              </div>
+              <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
+                <Users className="w-4 h-4 text-primary" />
+                <span className="text-foreground font-semibold text-sm">2 pessoas</span>
+                <span className="text-muted-foreground text-xs">na equipe</span>
+              </div>
+              <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
+                <Zap className="w-4 h-4 text-primary" />
+                <span className="text-foreground font-semibold text-sm">3º mês</span>
+                <span className="text-muted-foreground text-xs">início do lucro</span>
+              </div>
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9 }}
+              className="flex flex-col sm:flex-row items-start gap-4"
+            >
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-button hover:bg-primary/90 transition-all"
+              >
+                Quero ser um Licenciado
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-border/50 text-foreground hover:bg-secondary/50 px-8 py-6 text-lg rounded-full"
+              >
+                Saiba Mais
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
-          >
-            Lucre acima de{" "}
-            <span className="text-gradient-accent">R$ 60.000</span>{" "}
-            por mês com apenas{" "}
-            <span className="text-gradient-primary">2 pessoas</span>{" "}
-            na equipe
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
-          >
-            Agora você pode lucrar com inteligência artificial mesmo sem entender de tecnologia. 
-            Invista <span className="text-accent font-semibold">R$ 39.900</span>, seja dono da sua empresa de tecnologia 
-            e fature mais de R$ 20.000/mês de forma recorrente a partir do 3º mês!
-          </motion.p>
-
-          {/* Stats */}
+          {/* Right Column - Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-wrap justify-center gap-8 mb-10"
+            initial={{ opacity: 0, x: 30, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative flex items-center justify-center lg:justify-end"
           >
-            <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-primary" />
-              <span className="text-foreground font-semibold">+R$ 20k/mês</span>
-              <span className="text-muted-foreground text-sm">recorrente</span>
+            {/* Glow effect behind image */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[80%] h-[80%] bg-primary/15 rounded-full blur-[80px]" />
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="w-5 h-5 text-primary" />
-              <span className="text-foreground font-semibold">2 pessoas</span>
-              <span className="text-muted-foreground text-sm">na equipe</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Zap className="w-5 h-5 text-accent" />
-              <span className="text-foreground font-semibold">3º mês</span>
-              <span className="text-muted-foreground text-sm">início do lucro</span>
+            
+            {/* Hero Image */}
+            <div className="relative">
+              <img
+                src={heroImage}
+                alt="Equipe Alievi Analytics"
+                className="relative z-10 w-full max-w-lg lg:max-w-xl xl:max-w-2xl h-auto drop-shadow-2xl"
+              />
             </div>
           </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Button size="lg" className="bg-gradient-primary text-primary-foreground font-semibold px-8 py-6 text-lg shadow-button hover:opacity-90 transition-opacity">
-              Quero ser um Licenciado
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary px-8 py-6 text-lg">
-              Saiba Mais
-            </Button>
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom gradient fade */}
