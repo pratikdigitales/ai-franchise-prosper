@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import alieviLogo from "@/assets/alievi-logo.png";
+import alieviLogo from "@/assets/alievi-logo-simple.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
