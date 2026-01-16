@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import alieviLogo from "@/assets/alievi-logo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,9 +28,9 @@ const Navbar = () => {
       <div className="container px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="font-display text-xl font-bold text-gradient-primary">
-            Franquia IA
-          </div>
+          <a href="#" className="flex items-center">
+            <img src={alieviLogo} alt="Alievi Analytics" className="h-8 md:h-10" />
+          </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
