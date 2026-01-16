@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import alieviLogo from "@/assets/alievi-logo.png";
 
 const Footer = () => {
   return (
@@ -10,8 +11,8 @@ const Footer = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="font-display text-2xl font-bold text-gradient-primary mb-4">
-            Franquia IA
+          <div className="flex justify-center mb-4">
+            <img src={alieviLogo} alt="Alievi Analytics" className="h-12" />
           </div>
           <p className="text-muted-foreground text-sm mb-6">
             Primeiro modelo de franquia de IA do Brasil
