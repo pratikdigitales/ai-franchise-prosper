@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Users, Zap } from "lucide-react";
-import heroImage from "@/assets/hero-image.png";
 
 const HeroSection = () => {
   return (
@@ -14,13 +13,11 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
       
       <div className="container relative z-10 px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left Column - Content */}
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left"
           >
             {/* Badge */}
             <motion.div
@@ -54,7 +51,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-base md:text-lg text-muted-foreground max-w-xl mb-8"
+              className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
             >
               Agora você pode lucrar com inteligência artificial mesmo sem entender de tecnologia. 
               Invista <span className="text-primary font-semibold">R$ 39.900</span>, seja dono da sua empresa de tecnologia 
@@ -66,7 +63,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
-              className="flex flex-wrap gap-6 mb-8"
+              className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8"
             >
               <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
                 <TrendingUp className="w-4 h-4 text-primary" />
@@ -90,7 +87,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Button 
                 size="lg" 
@@ -107,28 +104,6 @@ const HeroSection = () => {
                 Saiba Mais
               </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Right Column - Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex items-center justify-center lg:justify-end"
-          >
-            {/* Glow effect behind image */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[80%] h-[80%] bg-primary/15 rounded-full blur-[80px]" />
-            </div>
-            
-            {/* Hero Image */}
-            <div className="relative">
-              <img
-                src={heroImage}
-                alt="Equipe Alievi Analytics"
-                className="relative z-10 w-full max-w-lg lg:max-w-xl xl:max-w-2xl h-auto drop-shadow-2xl"
-              />
-            </div>
           </motion.div>
         </div>
       </div>
