@@ -176,9 +176,11 @@ const SimulatorSection = () => {
                 <Clock className="inline w-4 h-4 mr-1" />
                 Cada mês que passa é dinheiro deixado na mesa
               </p>
-              <Button size="lg" className="bg-gradient-primary text-primary-foreground font-semibold px-8 py-6 text-lg shadow-button hover:opacity-90 transition-opacity">
-                Começar Agora
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button asChild size="lg" className="bg-gradient-primary text-primary-foreground font-semibold px-8 py-6 text-lg shadow-button hover:opacity-90 transition-opacity">
+                <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                  Começar Agora
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
             </div>
           </div>

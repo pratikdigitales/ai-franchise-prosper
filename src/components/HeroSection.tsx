@@ -90,18 +90,24 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Button 
+                asChild
                 size="lg" 
                 className="bg-primary text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-button hover:bg-primary/90 transition-all"
               >
-                Quero ser um Licenciado
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                  Quero ser um Licenciado
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
               <Button 
+                asChild
                 size="lg" 
                 variant="outline" 
                 className="border-border/50 text-foreground hover:bg-secondary/50 px-8 py-6 text-lg rounded-full"
               >
-                Saiba Mais
+                <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                  Saiba Mais
+                </a>
               </Button>
             </motion.div>
           </motion.div>

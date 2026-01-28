@@ -54,8 +54,10 @@ const Navbar = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Button className="bg-primary text-primary-foreground font-medium rounded-full px-6 shadow-button hover:bg-primary/90 transition-all">
-              Quero ser Licenciado
+            <Button asChild className="bg-primary text-primary-foreground font-medium rounded-full px-6 shadow-button hover:bg-primary/90 transition-all">
+              <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                Quero ser Licenciado
+              </a>
             </Button>
           </div>
 
@@ -91,8 +93,10 @@ const Navbar = () => {
               Resultados
             </a>
             <div className="px-4 pt-2">
-              <Button className="w-full bg-primary text-primary-foreground font-medium rounded-full">
-                Quero ser Licenciado
+              <Button asChild className="w-full bg-primary text-primary-foreground font-medium rounded-full">
+                <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                  Quero ser Licenciado
+                </a>
               </Button>
             </div>
           </div>
