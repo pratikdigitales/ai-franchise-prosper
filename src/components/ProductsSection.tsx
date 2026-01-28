@@ -79,11 +79,14 @@ const ProductsSection = () => {
                   {product.description}
                 </p>
                 <Button 
+                  asChild
                   variant="ghost" 
                   className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto font-medium"
                 >
-                  Saiba mais
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <a href="https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!" target="_blank" rel="noopener noreferrer">
+                    Saiba mais
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </Button>
               </div>
             </motion.div>
