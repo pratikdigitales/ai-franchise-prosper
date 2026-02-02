@@ -40,13 +40,13 @@ const AboutSection = () => {
             className="relative bg-gradient-card glass rounded-3xl p-8 md:p-12 border border-border"
           >
             {/* Planet Image */}
-            <div className="relative h-64 md:h-96 flex items-center justify-center mb-8">
+            <div className="relative h-72 md:h-[28rem] flex items-center justify-center mb-8 overflow-hidden">
               <motion.img
                 src={planetBrazil}
                 alt="Planeta Brasil - Presença Nacional"
-                className="w-full h-full max-w-md object-contain"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                className="w-full max-w-xl md:max-w-2xl object-contain scale-125 md:scale-150 -mb-16 md:-mb-24"
+                initial={{ opacity: 0, scale: 1.1 }}
+                whileInView={{ opacity: 1, scale: 1.25 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               />
