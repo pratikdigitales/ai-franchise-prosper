@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Briefcase, Award, Calendar } from "lucide-react";
+import planetBrazil from "@/assets/planet-brazil.png";
 
 const metrics = [
   { icon: Users, value: "50+", label: "Pessoas na equipe" },
