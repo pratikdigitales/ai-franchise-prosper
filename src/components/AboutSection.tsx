@@ -17,8 +17,8 @@ const AboutSection = () => {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1.25, 0.8]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.5]);
+  const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.4, 0.5, 1.25, 0.6]);
+  const opacity = useTransform(scrollYProgress, [0, 0.35, 0.7, 1], [0.3, 1, 1, 0.5]);
 
   return (
     <section ref={sectionRef} className="relative py-24 overflow-hidden">
