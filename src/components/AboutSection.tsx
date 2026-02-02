@@ -44,11 +44,11 @@ const AboutSection = () => {
               <motion.img
                 src={planetBrazil}
                 alt="Planeta Brasil - Presença Nacional"
-                className="w-full max-w-xl md:max-w-2xl object-contain scale-125 md:scale-150 -mb-16 md:-mb-24"
-                initial={{ opacity: 0, scale: 1.1 }}
+                className="w-full max-w-xl md:max-w-2xl object-contain -mb-16 md:-mb-24"
+                initial={{ opacity: 0, scale: 0.3 }}
                 whileInView={{ opacity: 1, scale: 1.25 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
               />
             </div>
 
