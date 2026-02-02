@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Users, Briefcase, Award, Calendar } from "lucide-react";
+import { useRef } from "react";
 import planetBrazil from "@/assets/planet-brazil.png";
 
 const metrics = [
@@ -10,8 +11,17 @@ const metrics = [
 ];
 
 const AboutSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1.25, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.5]);
+
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 overflow-hidden">
       <div className="container relative z-10 px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -45,10 +55,7 @@ const AboutSection = () => {
                 src={planetBrazil}
                 alt="Planeta Brasil - Presença Nacional"
                 className="w-full max-w-xl md:max-w-2xl object-contain -mb-16 md:-mb-24"
-                initial={{ opacity: 0, scale: 0.3 }}
-                whileInView={{ opacity: 1, scale: 1.25 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+                style={{ scale, opacity }}
               />
             </div>
 
