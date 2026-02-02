@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Briefcase, Award, Calendar } from "lucide-react";
+import planetBrazil from "@/assets/planet-brazil.png";
 
 const metrics = [
   { icon: Users, value: "50+", label: "Pessoas na equipe" },
@@ -38,47 +39,17 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="relative bg-gradient-card glass rounded-3xl p-8 md:p-12 border border-border"
           >
-            {/* Map Background */}
+            {/* Planet Image */}
             <div className="relative h-64 md:h-96 flex items-center justify-center mb-8">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 400 400"
-                  className="w-full h-full max-w-md opacity-20"
-                  fill="none"
-                >
-                  {/* Simplified Brazil shape */}
-                  <path
-                    d="M200 50 L300 100 L350 200 L300 300 L250 350 L150 350 L100 300 L50 200 L100 100 Z"
-                    fill="hsl(var(--primary))"
-                    className="animate-pulse-glow"
-                  />
-                </svg>
-              </div>
-              
-              {/* Floating dots representing presence */}
-              <div className="absolute inset-0">
-                {[...Array(12)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 * i, duration: 0.5 }}
-                    className="absolute w-3 h-3 bg-primary rounded-full shadow-glow"
-                    style={{
-                      left: `${20 + Math.random() * 60}%`,
-                      top: `${20 + Math.random() * 60}%`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              <div className="relative z-10 text-center">
-                <div className="text-5xl md:text-7xl font-display font-bold text-gradient-primary mb-2">
-                  Brasil
-                </div>
-                <div className="text-muted-foreground">Presença Nacional</div>
-              </div>
+              <motion.img
+                src={planetBrazil}
+                alt="Planeta Brasil - Presença Nacional"
+                className="w-full h-full max-w-md object-contain"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              />
             </div>
 
             {/* Metrics Grid */}
