@@ -47,8 +47,8 @@ const ResultsSection = () => {
             Resultados
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
-            Evolução dos{" "}
-            <span className="text-gradient-accent">Licenciados</span>
+            Em 6 meses nossos licenciados{" "}
+            <span className="text-gradient-accent">faturam em média:</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Veja como nossos licenciados evoluem ao longo do tempo
@@ -63,10 +63,10 @@ const ResultsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className={`relative ${tier.featured ? "md:-mt-4 md:mb-4" : ""}`}
+              className={`relative ${tier.featured ? "md:-mt-6 md:mb-4 pt-4" : ""}`}
             >
               {tier.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-sm font-medium rounded-full">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-sm font-medium rounded-full z-10">
                   Mais Comum
                 </div>
               )}
