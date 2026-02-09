@@ -63,10 +63,10 @@ const ResultsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className={`relative ${tier.featured ? "md:-mt-6 md:mb-4 pt-4" : ""}`}
+              className={`relative ${tier.featured ? "md:-mt-4 md:mb-4" : ""}`}
             >
               {tier.featured && (
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-sm font-medium rounded-full z-10">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-accent text-accent-foreground text-sm font-medium rounded-full z-10">
                   Mais Comum
                 </div>
               )}
