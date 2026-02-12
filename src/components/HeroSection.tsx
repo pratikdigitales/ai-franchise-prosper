@@ -51,42 +51,6 @@ const HeroSection = () => {
                 na equipe
               </motion.h1>
 
-              {/* Subheadline */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8"
-              >
-                Agora você pode lucrar com inteligência artificial mesmo sem entender de tecnologia. 
-                Invista <span className="text-primary font-semibold">R$ 39.900</span>, seja dono da sua empresa de tecnologia 
-                e fature mais de R$ 20.000/mês de forma recorrente a partir do 3º mês!
-              </motion.p>
-
-              {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-                className="flex flex-wrap justify-center gap-4 md:gap-6 mb-8"
-              >
-                <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
-                  <TrendingUp className="w-4 h-4 text-primary" />
-                  <span className="text-foreground font-semibold text-sm">+R$ 20k/mês</span>
-                  <span className="text-muted-foreground text-xs">recorrente</span>
-                </div>
-                <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
-                  <Users className="w-4 h-4 text-primary" />
-                  <span className="text-foreground font-semibold text-sm">2 pessoas</span>
-                  <span className="text-muted-foreground text-xs">na equipe</span>
-                </div>
-                <div className="flex items-center gap-2 bg-secondary/50 px-4 py-2 rounded-full border border-border/30">
-                  <Zap className="w-4 h-4 text-primary" />
-                  <span className="text-foreground font-semibold text-sm">3º mês</span>
-                  <span className="text-muted-foreground text-xs">início do lucro</span>
-                </div>
-              </motion.div>
-
               {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
