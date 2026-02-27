@@ -13,7 +13,15 @@ const contactSchema = z.object({
   nome: z.string().trim().min(3, "Nome deve ter pelo menos 3 caracteres").max(100, "Nome muito longo"),
   telefone: z.string().trim().min(10, "Telefone inválido (DDD + número)").max(15, "Telefone inválido"),
   email: z.string().trim().email("E-mail inválido").max(255, "E-mail muito longo"),
+  investimento: z.string().trim().min(1, "Informe o valor de investimento"),
 });
+
+const formatCurrency = (value: string): string => {
+  const digits = value.replace(/\D/g, "");
+  if (!digits) return "";
+  const cents = parseInt(digits, 10);
+  return (cents / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+};
 
 interface ContactFormModalProps {
   open: boolean;
@@ -26,8 +34,9 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
     nome: "",
     telefone: "",
     email: "",
+    investimento: "",
   });
-  const [errors, setErrors] = useState<{ nome?: string; telefone?: string; email?: string }>({});
+  const [errors, setErrors] = useState<{ nome?: string; telefone?: string; email?: string; investimento?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
@@ -44,7 +53,7 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
     // Validate form
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
-      const fieldErrors: { nome?: string; telefone?: string; email?: string } = {};
+      const fieldErrors: { nome?: string; telefone?: string; email?: string; investimento?: string } = {};
       result.error.errors.forEach((err) => {
         const field = err.path[0] as string;
         fieldErrors[field as keyof typeof fieldErrors] = err.message;
@@ -67,7 +76,7 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
           nome: formData.nome.trim(),
           telefone: formData.telefone.trim(),
           email: formData.email.trim(),
-          origem: "site-licenciamento",
+          investimento: formData.investimento.trim(),
           data: new Date().toISOString(),
         }),
       });
@@ -80,13 +89,13 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
     window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer");
     
     // Reset form and close modal
-    setFormData({ nome: "", telefone: "", email: "" });
+    setFormData({ nome: "", telefone: "", email: "", investimento: "" });
     setErrors({});
     setIsSubmitting(false);
     onOpenChange(false);
   };
 
-  const isFormValid = formData.nome.length >= 3 && formData.telefone.length >= 10 && formData.email.includes("@");
+  const isFormValid = formData.nome.length >= 3 && formData.telefone.length >= 10 && formData.email.includes("@") && formData.investimento.length > 0;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -137,6 +146,18 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
               className={errors.email ? "border-destructive" : ""}
             />
             {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="investimento" className="text-foreground">Qual valor de investimento você possui atualmente?</Label>
+            <Input
+              id="investimento"
+              placeholder="R$ 0,00"
+              value={formData.investimento}
+              onChange={(e) => handleInputChange("investimento", formatCurrency(e.target.value))}
+              className={errors.investimento ? "border-destructive" : ""}
+            />
+            {errors.investimento && <p className="text-sm text-destructive">{errors.investimento}</p>}
           </div>
 
           <Button
