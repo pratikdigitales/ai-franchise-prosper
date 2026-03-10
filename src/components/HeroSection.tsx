@@ -46,9 +46,8 @@ const HeroSection = () => {
               >
                 Lucre acima de{" "}
                 <span className="text-primary">R$ 60.000</span>{" "}
-                por mês com apenas{" "}
-                <span className="text-primary">2 pessoas</span>{" "}
-                na equipe
+                por mês{" "}
+                <span className="text-primary">sem equipe</span>
               </motion.h1>
 
               {/* CTA */}
