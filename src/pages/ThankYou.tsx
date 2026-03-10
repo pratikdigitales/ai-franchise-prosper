@@ -7,6 +7,12 @@ const ThankYou = () => {
   const [countdown, setCountdown] = useState(3);
 
   useEffect(() => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
