@@ -1,12 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { z } from "zod";
-
-const WHATSAPP_URL = "https://wa.me/5551926340030?text=Oi%20%F0%9F%91%8B%20Vi%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20franquia%20de%20IA!";
 const WEBHOOK_URL = "https://backsec.alievichat.com/webhook/cadastros-site-novo";
 
 const contactSchema = z.object({
@@ -30,6 +29,7 @@ interface ContactFormModalProps {
 }
 
 const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato" }: ContactFormModalProps) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nome: "",
     telefone: "",
@@ -85,14 +85,14 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
       // Continue even if webhook fails
     }
 
-    // Redirect to WhatsApp
-    window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer");
-    
     // Reset form and close modal
     setFormData({ nome: "", telefone: "", email: "", investimento: "" });
     setErrors({});
     setIsSubmitting(false);
     onOpenChange(false);
+
+    // Redirect to thank you page
+    navigate("/obrigado");
   };
 
   const isFormValid = formData.nome.length >= 3 && formData.telefone.length >= 10 && formData.email.includes("@") && formData.investimento.length > 0;
