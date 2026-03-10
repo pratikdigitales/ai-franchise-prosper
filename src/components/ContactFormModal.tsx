@@ -85,14 +85,14 @@ const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato"
       // Continue even if webhook fails
     }
 
-    // Redirect to WhatsApp
-    window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer");
-    
     // Reset form and close modal
     setFormData({ nome: "", telefone: "", email: "", investimento: "" });
     setErrors({});
     setIsSubmitting(false);
     onOpenChange(false);
+
+    // Redirect to thank you page
+    navigate("/obrigado");
   };
 
   const isFormValid = formData.nome.length >= 3 && formData.telefone.length >= 10 && formData.email.includes("@") && formData.investimento.length > 0;
