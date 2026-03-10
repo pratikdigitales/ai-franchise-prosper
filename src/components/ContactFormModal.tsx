@@ -29,6 +29,7 @@ interface ContactFormModalProps {
 }
 
 const ContactFormModal = ({ open, onOpenChange, buttonText = "Entrar em contato" }: ContactFormModalProps) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nome: "",
     telefone: "",
